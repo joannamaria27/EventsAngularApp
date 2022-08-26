@@ -7,7 +7,8 @@ import { __importDefault } from 'tslib'
     <div class="well haverhell thumbnail">
     <h2> {{event.name}} </h2>
         <div>Date: {{event?.date}} </div>
-        <div class="well" [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time" >Time: {{event?.time}}
+        <div [ngStyle]="{color: event?.time === '10:00 am' ? '#050000' : '#bbb'}" [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time" >
+        Time: {{event?.time}}
             <span *ngSwitchCase="'8:00 am'"> (Early Start) </span>
             <span *ngSwitchCase="'10:00 am'"> (Late Start) </span>
             <span *ngSwitchDefault> (Normal Start) </span>
